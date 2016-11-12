@@ -2,7 +2,7 @@
 
 ## Quck Installation
 
-    git clone https://github.com/laravel/quickstart-basic quickstart
+    git clone https://github.com/aditya21/laravel-soft-deletes.git
 
     cd quickstart
 
@@ -12,4 +12,4 @@
 
     php artisan serve
 
-[Complete Tutorial](http://laravel.com/docs/quickstart)
+[Soft delete laravel documentation link] (https://laravel.com/docs/5.2/eloquent#deleting-models)
