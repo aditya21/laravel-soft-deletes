@@ -4,7 +4,7 @@
 
     git clone https://github.com/aditya21/laravel-soft-deletes.git
 
-    cd quickstart
+    cd laravel-soft-deletes
 
     composer install
 
