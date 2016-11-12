@@ -61,8 +61,14 @@
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-btn fa-trash"></i>Delete
+                                                <button type="submit" class="btn {{ $task->trashed() ? 'btn-success': 'btn-danger' }}">
+                                                    <i class="fa fa-btn fa-trash"></i>
+                                                    
+                                                    @if($task->trashed())
+                                                        Enable
+                                                    @else
+                                                        Delete
+                                                    @endif
                                                 </button>
                                             </form>
                                         </td>

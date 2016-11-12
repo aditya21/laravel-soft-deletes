@@ -24,6 +24,15 @@ Route::group(['middleware' => ['web']], function () {
         ]);
     });
 
+/**
+     * Show Task Dashboard
+     */
+    Route::get('/deleted', function () {
+        return view('tasks', [
+            'tasks' => Task::withTrashed()->orderBy('created_at', 'asc')->get()
+        ]);
+    });
+
     /**
      * Add New Task
      */
@@ -49,7 +58,16 @@ Route::group(['middleware' => ['web']], function () {
      * Delete Task
      */
     Route::delete('/task/{id}', function ($id) {
-        Task::findOrFail($id)->delete();
+        
+        $task = Task::withTrashed()->findOrFail($id);
+        
+        if ($task->trashed()) {
+            $task->restore();
+        }else{
+            $task->delete();
+            return redirect('/deleted');            
+        }
+        
 
         return redirect('/');
     });
